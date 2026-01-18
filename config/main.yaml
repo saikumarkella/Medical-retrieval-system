@@ -1,0 +1,39 @@
+# llm configurations
+generator:
+  model: "gemini-2.5-flash-lite"
+  
+# Rag based retrieval configurations
+retrieval:
+  embed_model: "thenlper/gte-small"
+  use_elastic_search_vectorization: false
+  embedding_dims: 384
+
+  # ES configurations
+  index_name: "medical_records"
+  
+  # vector search configurations
+  similarity_metric: "cosine"
+  num_knn: 5
+  bulk_index: true
+
+external_data:
+  batch_size: 32
+  data_path: "documents/train.dat" # Externel records : mostly medical records
+  shuffle: true
+
+
+# generation parameters for the models.
+generator_config:
+  temperature: 0.5
+  max_tokens: 1000
+  top_p: 
+  
+
+app_config:
+  host: "0.0.0.0"
+  port: 8000
+  debug: false
+  reload: false
+  workers: 1
+
+
