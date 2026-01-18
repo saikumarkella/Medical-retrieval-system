@@ -76,7 +76,7 @@ async def retrieve_documents(req: QARequest):
     """
     try:
         response =  agent.med_graph.invoke({
-                    "question": "Did Mohs micrographic surgery fixed-tissue technique for melanoma of the nose?"
+                    "question": re.question
                     })
         if not response or "answer" not in response:
             return {
